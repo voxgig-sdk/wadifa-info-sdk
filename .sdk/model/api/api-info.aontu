@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        email: "contact@wadifa-info.com"
+        url: "https://www.wadifa-info.com/developpeurs"
+      }
+      description: "Free read-only data on Moroccan public-sector recruitment (concours) and civil-service salaries. No key. CC BY 4.0: display 'Source: Wadifa Info' with a visible link to each item's url field."
+      license: {
+        name: "CC BY 4.0"
+        url: "https://creativecommons.org/licenses/by/4.0/"
+      }
+      servers: [
+        {
+          url: "https://www.wadifa-info.com"
+        }
+      ]
+      summary: "Free read-only data on Moroccan public-sector recruitment (concours) and civil-service salaries."
+      title: "Wadifa Info public jobs API (Morocco)"
+      version: "1.0.0"
+      website: "https://wadifa-info.com"
+    }
+  }
+}
+

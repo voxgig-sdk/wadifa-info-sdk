@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "salary_list": {
+      "SALARY_LIST00": {
+        "grade": "s1e",
+        "net_monthly_mad": 31,
+        "url": "s20"
+      },
+      "SALARY_LIST01": {
+        "grade": "s3c",
+        "net_monthly_mad": 61,
+        "url": "s3e"
+      },
+      "SALARY_LIST02": {
+        "grade": "s5a",
+        "net_monthly_mad": 91,
+        "url": "s5c"
+      }
+    }
+  },
+  "new": {
+    "salary_list": {
+      "salary_list_ref01": {
+        "grade": "s78",
+        "net_monthly_mad": 121,
+        "url": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/salaires": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# BasicConcourFlow
+
+main: kit: flow: BasicConcourFlow:
+{
+  entity: "concour",
+  kind: "basic",
+  name: "BasicConcourFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "concour_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicConcourFlow"
+}

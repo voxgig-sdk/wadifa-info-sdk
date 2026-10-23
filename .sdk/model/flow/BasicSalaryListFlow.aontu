@@ -1,0 +1,22 @@
+# BasicSalaryListFlow
+
+main: kit: flow: BasicSalaryListFlow:
+{
+  entity: "salary_list",
+  kind: "basic",
+  name: "BasicSalaryListFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "salary_list_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSalaryListFlow"
+}

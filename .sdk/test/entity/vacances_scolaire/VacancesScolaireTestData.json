@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "vacances_scolaire": {
+      "VACANCES_SCOLAIRE00": {
+        "end": "s28",
+        "name_ar": "s29",
+        "name_fr": "s2a",
+        "start": "s2b"
+      },
+      "VACANCES_SCOLAIRE01": {
+        "end": "s50",
+        "name_ar": "s51",
+        "name_fr": "s52",
+        "start": "s53"
+      },
+      "VACANCES_SCOLAIRE02": {
+        "end": "s78",
+        "name_ar": "s79",
+        "name_fr": "s7a",
+        "start": "s7b"
+      }
+    }
+  },
+  "new": {
+    "vacances_scolaire": {
+      "vacances_scolaire_ref01": {
+        "end": "sa0",
+        "name_ar": "sa1",
+        "name_fr": "sa2",
+        "start": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/vacances-scolaires": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

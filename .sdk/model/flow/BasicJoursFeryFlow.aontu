@@ -1,0 +1,22 @@
+# BasicJoursFeryFlow
+
+main: kit: flow: BasicJoursFeryFlow:
+{
+  entity: "jours_fery",
+  kind: "basic",
+  name: "BasicJoursFeryFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "jours_fery_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicJoursFeryFlow"
+}

@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "jours_fery": {
+      "JOURS_FERY00": {
+        "approximate": true,
+        "date": "s33",
+        "name_ar": "s34",
+        "name_fr": "s35",
+        "religious": true
+      },
+      "JOURS_FERY01": {
+        "approximate": true,
+        "date": "s65",
+        "name_ar": "s66",
+        "name_fr": "s67",
+        "religious": true
+      },
+      "JOURS_FERY02": {
+        "approximate": true,
+        "date": "s97",
+        "name_ar": "s98",
+        "name_fr": "s99",
+        "religious": true
+      }
+    }
+  },
+  "new": {
+    "jours_fery": {
+      "jours_fery_ref01": {
+        "approximate": true,
+        "date": "sc9",
+        "name_ar": "sca",
+        "name_fr": "scb",
+        "religious": true
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/jours-feries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

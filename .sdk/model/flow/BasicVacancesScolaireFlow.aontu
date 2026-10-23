@@ -1,0 +1,22 @@
+# BasicVacancesScolaireFlow
+
+main: kit: flow: BasicVacancesScolaireFlow:
+{
+  entity: "vacances_scolaire",
+  kind: "basic",
+  name: "BasicVacancesScolaireFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "vacances_scolaire_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicVacancesScolaireFlow"
+}

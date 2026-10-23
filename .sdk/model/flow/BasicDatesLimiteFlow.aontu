@@ -1,0 +1,28 @@
+# BasicDatesLimiteFlow
+
+main: kit: flow: BasicDatesLimiteFlow:
+{
+  entity: "dates_limite",
+  kind: "basic",
+  name: "BasicDatesLimiteFlow",
+  step: [
+    {
+      i: {
+        ref: "dates_limite_ref01",
+        srcdatavar: "dates_limite_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dates_limite_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDatesLimiteFlow"
+}

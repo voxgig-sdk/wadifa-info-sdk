@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "concour": {
+      "CONCOUR00": {
+        "deadline": "s50",
+        "employer": "s51",
+        "grade": "s52",
+        "id": "CONCOUR00",
+        "official_notice": "s54",
+        "posts": "s55",
+        "published": "s56",
+        "url": "s57"
+      },
+      "CONCOUR01": {
+        "deadline": "sa0",
+        "employer": "sa1",
+        "grade": "sa2",
+        "id": "CONCOUR01",
+        "official_notice": "sa4",
+        "posts": "sa5",
+        "published": "sa6",
+        "url": "sa7"
+      },
+      "CONCOUR02": {
+        "deadline": "sf0",
+        "employer": "sf1",
+        "grade": "sf2",
+        "id": "CONCOUR02",
+        "official_notice": "sf4",
+        "posts": "sf5",
+        "published": "sf6",
+        "url": "sf7"
+      }
+    }
+  },
+  "new": {
+    "concour": {
+      "concour_ref01": {
+        "deadline": "s140",
+        "employer": "s141",
+        "grade": "s142",
+        "official_notice": "s144",
+        "posts": "s145",
+        "published": "s146",
+        "url": "s147"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/v1/concours": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+# Entity: jours_fery
+
+main: kit: entity: jours_fery: {
+
+  alias: field: {}
+
+  fields: {
+    approximate: {
+      h: "Approximate"
+      n: "approximate"
+      r: false
+      sh: "true for Islamic holidays until the Ministry of Habous confirms the date"
+      t: "`$BOOLEAN`"
+    }
+    date: {
+      fo: "date"
+      h: "Date"
+      n: "date"
+      r: false
+      t: "`$STRING`"
+    }
+    name_ar: {
+      h: "Name Ar"
+      n: "name_ar"
+      r: false
+      t: "`$STRING`"
+    }
+    name_fr: {
+      h: "Name Fr"
+      n: "name_fr"
+      r: false
+      t: "`$STRING`"
+    }
+    religious: {
+      h: "Religious"
+      n: "religious"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "jours_fery"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/v1/jours-feries"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/v1/jours-feries"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "jours-feries"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.holidays`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

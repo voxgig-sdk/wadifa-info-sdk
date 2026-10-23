@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "dates_limite": {
+      "DATES_LIMITE00": {
+        "id": "DATES_LIMITE00"
+      },
+      "DATES_LIMITE01": {
+        "id": "DATES_LIMITE01"
+      },
+      "DATES_LIMITE02": {
+        "id": "DATES_LIMITE02"
+      }
+    }
+  },
+  "new": {
+    "dates_limite": {
+      "dates_limite_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /agenda/dates-limites": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

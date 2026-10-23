@@ -1,0 +1,72 @@
+<?php
+declare(strict_types=1);
+
+// WadifaInfo SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+WadifaInfoUtility::setRegistrar(function (WadifaInfoUtility $u): void {
+    $u->clean = [WadifaInfoClean::class, 'call'];
+    $u->clean_add = [WadifaInfoClean::class, 'add'];
+    $u->clean_explain = [WadifaInfoDone::class, 'clean_explain'];
+    $u->done = [WadifaInfoDone::class, 'call'];
+    $u->make_error = [WadifaInfoMakeError::class, 'call'];
+    $u->feature_add = [WadifaInfoFeatureAdd::class, 'call'];
+    $u->feature_hook = [WadifaInfoFeatureHook::class, 'call'];
+    $u->feature_init = [WadifaInfoFeatureInit::class, 'call'];
+    $u->fetcher = [WadifaInfoFetcher::class, 'call'];
+    $u->make_fetch_def = [WadifaInfoMakeFetchDef::class, 'call'];
+    $u->make_context = [WadifaInfoMakeContext::class, 'call'];
+    $u->make_options = [WadifaInfoMakeOptions::class, 'call'];
+    $u->make_request = [WadifaInfoMakeRequest::class, 'call'];
+    $u->make_response = [WadifaInfoMakeResponse::class, 'call'];
+    $u->make_result = [WadifaInfoMakeResult::class, 'call'];
+    $u->make_point = [WadifaInfoMakePoint::class, 'call'];
+    $u->make_spec = [WadifaInfoMakeSpec::class, 'call'];
+    $u->make_url = [WadifaInfoMakeUrl::class, 'call'];
+    $u->param = [WadifaInfoParam::class, 'call'];
+    $u->prepare_auth = [WadifaInfoPrepareAuth::class, 'call'];
+    $u->prepare_body = [WadifaInfoPrepareBody::class, 'call'];
+    $u->prepare_headers = [WadifaInfoPrepareHeaders::class, 'call'];
+    $u->prepare_method = [WadifaInfoPrepareMethod::class, 'call'];
+    $u->prepare_params = [WadifaInfoPrepareParams::class, 'call'];
+    $u->prepare_path = [WadifaInfoPreparePath::class, 'call'];
+    $u->prepare_query = [WadifaInfoPrepareQuery::class, 'call'];
+    $u->graphql_body = [WadifaInfoGraphql::class, 'body'];
+    $u->graphql_errors = [WadifaInfoGraphql::class, 'errors'];
+    $u->result_basic = [WadifaInfoResultBasic::class, 'call'];
+    $u->result_body = [WadifaInfoResultBody::class, 'call'];
+    $u->result_headers = [WadifaInfoResultHeaders::class, 'call'];
+    $u->transform_request = [WadifaInfoTransformRequest::class, 'call'];
+    $u->transform_response = [WadifaInfoTransformResponse::class, 'call'];
+});

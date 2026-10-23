@@ -1,0 +1,19 @@
+{
+  "files": [
+    "SUMMARY.md"
+  ],
+  "config": ".sdk/doc/qa/vale.ini",
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Free read-only data on Moroccan public-sector recruitment (concours) and civil-service salaries. No key. CC BY 4.0: display &#39;Source: Wadifa Info&#39; with a visible link to each item&#39;s url field.",
+      "List of open concours",
+      "Public holidays",
+      "Salaries by grade",
+      "School breaks",
+      "inclusive",
+      "text/calendar",
+      "true for Islamic holidays until the Ministry of Habous confirms the date"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+# Entity: dates_limite
+
+main: kit: entity: dates_limite: {
+
+  alias: field: {}
+
+  name: "dates_limite"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /agenda/dates-limites"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "lang"
+                or: "lang"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/agenda/dates-limites"
+          rs: {
+            binary: true
+            kind: "raw"
+            media: "text/calendar"
+          }
+          s: [
+            {
+              lit: "agenda"
+            }
+            {
+              lit: "dates-limites"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

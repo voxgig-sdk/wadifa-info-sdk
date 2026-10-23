@@ -1,0 +1,76 @@
+# Entity: vacances_scolaire
+
+main: kit: entity: vacances_scolaire: {
+
+  alias: field: {}
+
+  fields: {
+    end: {
+      fo: "date"
+      h: "End"
+      n: "end"
+      r: false
+      sh: "inclusive"
+      t: "`$STRING`"
+    }
+    name_ar: {
+      h: "Name Ar"
+      n: "name_ar"
+      r: false
+      t: "`$STRING`"
+    }
+    name_fr: {
+      h: "Name Fr"
+      n: "name_fr"
+      r: false
+      t: "`$STRING`"
+    }
+    start: {
+      fo: "date"
+      h: "Start"
+      n: "start"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "vacances_scolaire"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/v1/vacances-scolaires"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/v1/vacances-scolaires"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "vacances-scolaires"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.breaks`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

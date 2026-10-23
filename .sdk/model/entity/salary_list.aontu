@@ -1,0 +1,80 @@
+# Entity: salary_list
+
+main: kit: entity: salary_list: {
+
+  alias: field: {}
+
+  fields: {
+    grade: {
+      h: "Grade"
+      n: "grade"
+      r: false
+      t: "`$STRING`"
+    }
+    net_monthly_mad: {
+      h: "Net Monthly Mad"
+      n: "net_monthly_mad"
+      r: false
+      t: "`$INTEGER`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "salary_list"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/v1/salaires"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "fr"
+                k: "query"
+                n: "lang"
+                or: "lang"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/v1/salaires"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "salaires"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

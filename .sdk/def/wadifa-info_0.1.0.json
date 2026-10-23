@@ -1,0 +1,355 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Wadifa Info public jobs API (Morocco)",
+    "version": "1.0.0",
+    "description": "Free read-only data on Moroccan public-sector recruitment (concours) and civil-service salaries. No key. CC BY 4.0: display 'Source: Wadifa Info' with a visible link to each item's url field.",
+    "license": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "contact": {
+      "email": "contact@wadifa-info.com",
+      "url": "https://www.wadifa-info.com/developpeurs"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.wadifa-info.com"
+    }
+  ],
+  "paths": {
+    "/api/v1/concours": {
+      "get": {
+        "summary": "Open public-sector recruitment competitions",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "fr",
+                "ar"
+              ],
+              "default": "fr"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2000,
+              "default": 500
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of open concours",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConcoursList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/salaires": {
+      "get": {
+        "summary": "Indicative net monthly salary by civil-service grade",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "fr",
+                "ar"
+              ],
+              "default": "fr"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Salaries by grade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalaryList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agenda/dates-limites": {
+      "get": {
+        "summary": "iCalendar feed of open concours deadlines",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "fr",
+                "ar"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "text/calendar",
+            "content": {
+              "text/calendar": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/jours-feries": {
+      "get": {
+        "summary": "Moroccan public holidays for the current and next year (civil + Islamic; Islamic dates are forecasts until the moon sighting)",
+        "responses": {
+          "200": {
+            "description": "Public holidays",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "type": "string"
+                    },
+                    "license": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    },
+                    "holidays": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date"
+                          },
+                          "name_fr": {
+                            "type": "string"
+                          },
+                          "name_ar": {
+                            "type": "string"
+                          },
+                          "religious": {
+                            "type": "boolean"
+                          },
+                          "approximate": {
+                            "type": "boolean",
+                            "description": "true for Islamic holidays until the Ministry of Habous confirms the date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/vacances-scolaires": {
+      "get": {
+        "summary": "Moroccan school breaks for the 2026/2027 school year (ministerial decision 047.26)",
+        "responses": {
+          "200": {
+            "description": "School breaks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "type": "string"
+                    },
+                    "license": {
+                      "type": "string"
+                    },
+                    "school_year": {
+                      "type": "string"
+                    },
+                    "basis": {
+                      "type": "string"
+                    },
+                    "breaks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "start": {
+                            "type": "string",
+                            "format": "date"
+                          },
+                          "end": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "inclusive"
+                          },
+                          "name_fr": {
+                            "type": "string"
+                          },
+                          "name_ar": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Attribution": {
+        "type": "object",
+        "properties": {
+          "license": {
+            "type": "string"
+          },
+          "license_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "required": {
+            "type": "string"
+          },
+          "docs": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "Concours": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "grade": {
+            "type": "string"
+          },
+          "employer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "posts": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "published": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "deadline": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "official_notice": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          }
+        }
+      },
+      "ConcoursList": {
+        "type": "object",
+        "properties": {
+          "attribution": {
+            "$ref": "#/components/schemas/Attribution"
+          },
+          "generated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Concours"
+            }
+          }
+        }
+      },
+      "Salary": {
+        "type": "object",
+        "properties": {
+          "grade": {
+            "type": "string"
+          },
+          "net_monthly_mad": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "SalaryList": {
+        "type": "object",
+        "properties": {
+          "attribution": {
+            "$ref": "#/components/schemas/Attribution"
+          },
+          "notice": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Salary"
+            }
+          }
+        }
+      }
+    }
+  }
+}
